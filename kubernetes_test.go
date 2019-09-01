@@ -1157,7 +1157,8 @@ func TestKubernetesClusters_UpdateNodePool_AutoScale(t *testing.T) {
 	}
 }`
 
-	expectedReqJSON := "{\"auto_scale\":true,\"min_nodes\":0,\"max_nodes\":10}\n"
+	expectedReqJSON := `{"auto_scale":true,"min_nodes":0,"max_nodes":10}
+`
 
 	mux.HandleFunc("/v2/kubernetes/clusters/8d91899c-0739-4a1a-acc5-deadbeefbb8f/node_pools/8d91899c-nodepool-4a1a-acc5-deadbeefbb8a", func(w http.ResponseWriter, r *http.Request) {
 		buf := new(bytes.Buffer)
